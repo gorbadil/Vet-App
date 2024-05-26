@@ -1,0 +1,6 @@
+spring.datasource.url=jdbc:postgresql://ep-jolly-boat-a2xk4sgl.eu-central-1.pg.koyeb.app/koyebdb
+spring.datasource.username=koyeb-adm
+spring.datasource.password=FKRoupgvn51t
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update

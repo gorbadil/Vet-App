@@ -10,7 +10,7 @@ public class VeterinaryManagementProjectApplication {
 		SpringApplication.run(VeterinaryManagementProjectApplication.class, args);
 	}
 
-//Rapordan devam getAll bitti tekrar kontrol et
+
 	
 
 }

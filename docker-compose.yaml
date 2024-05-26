@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  spring-app:
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      VETAPP_DB_PASS: postgresPassword
+      VETAPP_DB_URL: jdbc:postgresql://postgres:5432/vetapp
+
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: vet_app_user
+      POSTGRES_PASSWORD: postgresPassword
+      POSTGRES_DB: vetapp
+
+

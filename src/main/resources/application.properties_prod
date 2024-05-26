@@ -1,8 +1,0 @@
-spring.datasource.url=${VETAPP_DB_URL}
-spring.datasource.username=vet_app_user
-spring.datasource.password=${VETAPP_DB_PASS}
-spring.datasource.driver-class-name=org.postgresql.Driver
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.format_sql=true
-spring.jpa.hibernate.ddl-auto=update
-vetapp.host = ${VETAPP_HOST}
