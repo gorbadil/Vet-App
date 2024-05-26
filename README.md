@@ -98,9 +98,11 @@ Aşağıda, API'nin sunduğu temel endpoint'lerin bir listesi bulunmaktadır:
 
 Bu projeyi çalıştırmak için aşağıdaki ortam değişkenlerini application.properties dosyasından değiştirmelisiniz.
 
-spring.datasource.url  
-spring.datasource.username  
-spring.datasource.password  
+VETAPP_DB_PASS
+VETAPP_DB_USER
+VETAPP_DB_URL
+VETAPP_DB_NAME
+
 
 ## Lisans
 

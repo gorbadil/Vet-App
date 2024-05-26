@@ -6,7 +6,9 @@ services:
       - 8080:8080
     environment:
       VETAPP_DB_PASS: postgresPassword
-      VETAPP_DB_URL: jdbc:postgresql://postgres:5432/vetapp
+      VETAPP_DB_URL: jdbc:postgresql://postgres:5432/
+      VETAPP_DB_NAME: vetapp
+      VETAPP_DB_USER: vet_app_user
 
     depends_on:
       - postgres
