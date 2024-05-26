@@ -1,0 +1,170 @@
+*-*-*-* DOCTOR *-*-*-*
+
+{
+  "name": "Gabrielle Fawdry",
+  "email": "gfawdry0@admin.ch",
+  "address": "Apt 153",
+  "city": "Iralaya",
+  "phone": "+504 473 228 7043"
+}, {
+  "name": "Norris Bricknell",
+  "email": "nbricknell1@jugem.jp",
+  "address": "Apt 658",
+  "city": "Alfenas",
+  "phone": "+55 148 256 2205"
+}, {
+  "name": "Elliott Carrack",
+  "email": "ecarrack2@seesaa.net",
+  "address": "Apt 24",
+  "city": "Valada",
+  "phone": "+351 701 180 8724"
+}, {
+  "name": "Maude Wisham",
+  "email": "mwisham3@technorati.com",
+  "address": "Apt 1676",
+  "city": "San Isidro",
+  "phone": "+52 336 655 5891"
+}, {
+  "name": "Baron Hails",
+  "email": "bhails4@lycos.com",
+  "address": "Suite 76",
+  "city": "Yaroslavskiy",
+  "phone": "+7 479 157 8414"
+},
+
+
+*-*-*-* CUSTOMER  *-*-*-*
+
+{
+  "name": "Johann Hannah",
+  "email": "jhannah5@istockphoto.com",
+  "address": "Room 1576",
+  "city": "Łazy",
+  "phone": "+48 169 971 0632"
+}, {
+  "name": "Elliot Royds",
+  "mail": "eroyds6@creativecommons.org",
+  "address": "Suite 51",
+  "city": "Podivín",
+  "phone": "+420 467 359 8073"
+}, {
+  "name": "Trefor Fluit",
+  "mail": "tfluit7@shareasale.com",
+  "address": "2nd Floor",
+  "city": "Novoishimskiy",
+  "phone": "+7 745 472 7044"
+}, {
+  "name": "Moses Runacres",
+  "mail": "mrunacres8@walmart.com",
+  "address": "Room 626",
+  "city": "Slatina",
+  "phone": "+385 769 326 8586"
+}, {
+  "name": "Issiah Mayell",
+  "mail": "imayell9@blogspot.com",
+  "address": "Apt 750",
+  "city": "Ängelholm",
+  "phone": "+46 474 514 4740"
+}
+
+
+*-*-*-* AVAILABLE DATE  *-*-*-*
+{
+  "availableDate": "2023-12-19",
+  "doctor": {
+    "id": 1
+  }
+}
+
+{
+  "availableDate": "2023-12-20",
+  "doctor": {
+    "id": 1
+  }
+}
+
+{
+  "availableDate": "2023-12-21",
+  "doctor": {
+    "id": 1
+  }
+}
+
+{
+  "availableDate": "2023-12-21",
+  "doctor": {
+    "id": 2
+  }
+}
+
+{
+  "availableDate": "2024-01-11",
+  "doctor": {
+    "id": 2
+  }
+}
+
+{
+  "availableDate": "2024-01-12",
+  "doctor": {
+    "id": 2
+  }
+}
+
+*-*-*-* ANIMAL  *-*-*-*
+
+{
+        "name": "Fluffy",
+        "species": "Cat",
+        "breed": "Persian",
+        "gender": "Male",
+        "dateOfBirth": "2019-04-10",
+        "colour": "White",
+        "customer": {
+            "id": 1
+        }
+    },
+    {
+        "name": "Buddy",
+        "species": "Dog",
+        "breed": "Labrador",
+        "gender": "Male",
+        "dateOfBirth": "2018-08-25",
+        "colour": "Golden",
+        "customer": {
+            "id": 2
+        }
+    },
+    {
+        "name": "Whiskers",
+        "species": "Cat",
+        "breed": "Siamese",
+        "gender": "Female",
+        "dateOfBirth": "2020-01-15",
+        "colour": "Brown",
+        "customer": {
+            "id": 1
+        }
+    },
+    {
+        "name": "Rocky",
+        "species": "Dog",
+        "breed": "Bulldog",
+        "gender": "Male",
+        "dateOfBirth": "2017-11-02",
+        "colour": "Brown/White",
+        "customer": {
+            "id": 3
+        }
+    },
+    {
+        "name": "Coco",
+        "species": "Dog",
+        "breed": "Poodle",
+        "gender": "Female",
+        "dateOfBirth": "2016-06-20",
+        "colour": "Black",
+        "customer": {
+            "id": 2
+        }
+    }
