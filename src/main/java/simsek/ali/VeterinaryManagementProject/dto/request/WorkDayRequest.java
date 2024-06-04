@@ -13,6 +13,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class WorkDayRequest {
 
-    private LocalDate workDate;
+    private LocalDate workDay;
     private Long doctorId;
 }
