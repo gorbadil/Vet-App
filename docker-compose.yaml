@@ -15,12 +15,9 @@ services:
 
   postgres:
     image: postgres
-    restart: always
     ports:
       - 5432:5432
     environment:
       POSTGRES_USER: vet_app_user
       POSTGRES_PASSWORD: postgresPassword
       POSTGRES_DB: vetapp
-
-

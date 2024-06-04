@@ -33,13 +33,12 @@ public class Vaccination {
     @Column(name = "protection_finish_date")
     private LocalDate protectionFinishDate;
 
-    @ManyToOne (fetch = FetchType.EAGER)
-    @JoinColumn (name = "animal_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "animal_id")
     private Animal animal;
 
-/*    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn (name = "report_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "report_id")
     private Report report;
-*/
 
 }

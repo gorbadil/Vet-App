@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 public class Report {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
@@ -21,12 +21,11 @@ public class Report {
     private double price;
 
     @OneToOne
-    @JoinColumn (name = "appointment_id")
+    @JoinColumn(name = "appointment_id")
     private Appointment appointment;
 
-/*    @OneToMany (mappedBy = "report", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "report", cascade = CascadeType.REMOVE)
     @JsonIgnore
     private List<Vaccination> vaccinationList;
-*/
 
 }
