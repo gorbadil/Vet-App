@@ -22,30 +22,40 @@ public class WorkDayController {
     public final WorkDayService workDayService;
 
     @GetMapping
-    public ResponseEntity<Page<WorkDayResponse>> findAllWorkDays (
+    public ResponseEntity<Page<WorkDayResponse>> findAllWorkDays(
             @RequestParam(name = "pageNumber", required = false, defaultValue = "0") int pageNumber,
-            @RequestParam(name = "pageSize", required = false, defaultValue = "10") int pageSize
-    ){
+            @RequestParam(name = "pageSize", required = false, defaultValue = "10") int pageSize) {
         return ResponseEntity.status(HttpStatus.OK).body(workDayService.findAllWorkDays(pageNumber, pageSize));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<WorkDayResponse> findWorkDayById (@PathVariable Long id){
+    public ResponseEntity<WorkDayResponse> findWorkDayById(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(workDayService.findWorkDayById(id));
     }
 
     @PostMapping
-    public ResponseEntity<WorkDayResponse> createWorkDay (@RequestBody WorkDayRequest workDayRequest){
-        return ResponseEntity.status(HttpStatus.OK).body(workDayService.createWorkDay(workDayRequest)) ;
+    public ResponseEntity<WorkDayResponse> createWorkDay(@RequestBody WorkDayRequest workDayRequest) {
+        return ResponseEntity.status(HttpStatus.OK).body(workDayService.createWorkDay(workDayRequest));
     }
 
+    // @PutMapping("/{id}")
+    // public ResponseEntity<WorkDayResponse> updateWorkDay(@PathVariable Long id,
+    // @RequestBody WorkDayRequest workDayRequest) {
+    // return
+    // ResponseEntity.status(HttpStatus.OK).body(workDayService.updateWorkDay(id,
+    // workDayRequest));
+    // }
+
     @PutMapping("/{id}")
-    public ResponseEntity<WorkDayResponse> updateWorkDay (@PathVariable Long id, @RequestBody WorkDayRequest workDayRequest){
-        return ResponseEntity.status(HttpStatus.OK).body(workDayService.updateWorkDay(id, workDayRequest));
+    public ResponseEntity<WorkDayResponse> updateWorkDay(@PathVariable Long id,
+            @RequestBody WorkDayRequest workDayRequest) {
+        WorkDayResponse updatedWorkDay = workDayService.updateWorkDay(id,
+                workDayRequest);
+        return ResponseEntity.ok(updatedWorkDay);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteAvailableDate(@PathVariable Long id){
+    public ResponseEntity<String> deleteAvailableDate(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(workDayService.deleteWorkDay(id));
     }
 }

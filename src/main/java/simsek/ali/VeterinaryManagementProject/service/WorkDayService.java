@@ -25,24 +25,25 @@ public class WorkDayService {
     private final ModelMapper modelMapper;
     private final DoctorService doctorService;
 
-    public Page<WorkDayResponse> findAllWorkDays (int pageNumber, int pageSize){
+    public Page<WorkDayResponse> findAllWorkDays(int pageNumber, int pageSize) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
-        //TODO LİSTE BOŞSA BULUNAMADI HATASI FIRLAT
+        // TODO LİSTE BOŞSA BULUNAMADI HATASI FIRLAT
         return workDayRepository.findAll(pageable).map(workDay -> modelMapper.map(workDay, WorkDayResponse.class));
     }
 
-    public WorkDayResponse findWorkDayById (Long id){
-        return modelMapper.map(workDayRepository.findById(id).orElseThrow(()-> new EntityNotFoundException(id, WorkDay.class))
-                , WorkDayResponse.class);
+    public WorkDayResponse findWorkDayById(Long id) {
+        return modelMapper.map(
+                workDayRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(id, WorkDay.class)),
+                WorkDayResponse.class);
     }
 
-    public WorkDayResponse createWorkDay(WorkDayRequest workDayRequest){
+    public WorkDayResponse createWorkDay(WorkDayRequest workDayRequest) {
         Doctor doctorFromDb = doctorService.findDoctor(workDayRequest.getDoctorId());
 
-        Optional<WorkDay> existWorkDayWithSameSpecs
-                = workDayRepository.findByWorkDayAndDoctor_Id(workDayRequest.getWorkDate(), workDayRequest.getDoctorId());
+        Optional<WorkDay> existWorkDayWithSameSpecs = workDayRepository
+                .findByWorkDayAndDoctor_Id(workDayRequest.getWorkDay(), workDayRequest.getDoctorId());
 
-        if (existWorkDayWithSameSpecs.isPresent()){
+        if (existWorkDayWithSameSpecs.isPresent()) {
             throw new EntityAlreadyExistException(WorkDay.class);
         }
 
@@ -52,35 +53,35 @@ public class WorkDayService {
         return modelMapper.map(workDayRepository.save(newWorkDay), WorkDayResponse.class);
     }
 
-    public WorkDayResponse updateWorkDay(Long id, WorkDayRequest workDayRequest){
+    public WorkDayResponse updateWorkDay(Long id, WorkDayRequest workDayRequest) {
         Doctor doctorFromDb = doctorService.findDoctor(workDayRequest.getDoctorId());
 
-        Optional<WorkDay> workDayFromDb = workDayRepository.findById(id);
-        Optional<WorkDay> existOtherWorkDayFromRequest
-                = workDayRepository.findByWorkDayAndDoctor_Id(workDayRequest.getWorkDate(), workDayRequest.getDoctorId());
+        WorkDay workDayFromDb = workDayRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(id, WorkDay.class));
 
-        if (workDayFromDb.isEmpty()){
-            throw new EntityNotFoundException(id, WorkDay.class);
-        }
+        Optional<WorkDay> existOtherWorkDayFromRequest = workDayRepository
+                .findByWorkDayAndDoctor_Id(workDayRequest.getWorkDay(), workDayRequest.getDoctorId());
 
-        if (existOtherWorkDayFromRequest.isPresent() && !existOtherWorkDayFromRequest.get().getId().equals(id)){
+        if (existOtherWorkDayFromRequest.isPresent() && !existOtherWorkDayFromRequest.get().getId().equals(id)) {
             throw new EntityAlreadyExistException(WorkDay.class);
         }
 
-        WorkDay updatedWorkDay = workDayFromDb.get();
         workDayRequest.setDoctorId(null);
-        modelMapper.map(workDayRequest, updatedWorkDay);
-        updatedWorkDay.setDoctor(doctorFromDb);
-        return modelMapper.map(workDayRepository.save(updatedWorkDay), WorkDayResponse.class);
+        modelMapper.map(workDayRequest, workDayFromDb);
+
+        workDayFromDb.setDoctor(doctorFromDb);
+
+        WorkDay savedWorkDay = workDayRepository.save(workDayFromDb);
+
+        return modelMapper.map(savedWorkDay, WorkDayResponse.class);
     }
 
-    public String deleteWorkDay(Long id){
+    public String deleteWorkDay(Long id) {
         Optional<WorkDay> workDayFromDb = workDayRepository.findById(id);
 
-        if (workDayFromDb.isEmpty()){
+        if (workDayFromDb.isEmpty()) {
             throw new EntityNotFoundException(id, WorkDay.class);
-        }
-        else {
+        } else {
             workDayRepository.delete(workDayFromDb.get());
             return "Work day deleted.";
         }
